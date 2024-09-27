@@ -1,0 +1,67 @@
+{{#
+    @name Header
+    @desc The sites header rendered on each page.
+    @type module
+#}}
+
+<header
+    x-data="{
+        sticky: false,
+        init() {
+            ScrollTrigger.create({
+                trigger: document.body,
+                start: '400px top',
+                end: 'bottom bottom',
+                onEnter: () => {
+                    this.sticky = true;
+                },
+                onLeaveBack: () => {
+                    this.sticky = false;
+                },
+            })
+        },
+    }"
+    x-ref="header"
+    id="site-header"
+    class="fixed z-30 inset-x-0 top-0 w-full pt-6"
+>
+
+    <div
+        x-data="animate()"
+        x-init="
+            scrollTrigger = false;
+            delay = avalanche.delay.enter + 0.2;
+            mounted();
+        "
+        x-cloak
+        x-ref="element"
+        class="relative flex justify-between items-start px-4 md:px-16"
+    >
+
+        <div class="flex-1 flex items-center gap-6">
+            <div
+                class="w-48 sm:w-80 mt-2 sm:mt-0 transition-all transform origin-top-left"
+            >
+                {{ partial:components/logo }}
+            </div>
+
+            {{ if not configuration:hidden_nav_on_desktop }}
+                {{ partial:navigation/nav_primary }}
+            {{ /if }}
+        </div>
+
+        {{ if configuration:hidden_nav_on_desktop }}
+            <div class="flex">
+                {{ partial:components/buttons/button_hamburger
+                    magnetic="true"
+                }}
+            </div>
+        {{ else }}
+            <div class="flex xl:hidden">
+                {{ partial:components/buttons/button_hamburger
+                    magnetic="true"
+                }}
+            </div>
+        {{ /if }}
+    </div>
+</header>

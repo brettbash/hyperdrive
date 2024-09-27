@@ -1,0 +1,80 @@
+tabs:
+  general:
+    display: General
+    sections:
+      -
+        fields:
+          -
+            handle: hidden_nav_on_desktop
+            field:
+              type: toggle
+              display: 'Hidden Nav on Desktop'
+              width: 50
+          -
+            handle: section_general
+            field:
+              type: section
+              display: 'General configuration'
+              instructions: 'Global site configuration options.'
+          -
+            handle: email
+            field:
+              input_type: email
+              display: 'Primary Email'
+              type: text
+              width: 50
+          -
+            handle: phone
+            field:
+              input_type: tel
+              display: Phone
+              type: text
+              width: 50
+          -
+            handle: address_street
+            field:
+              display: Street
+              type: text
+              listable: false
+              width: 66
+          -
+            handle: address_unit
+            field:
+              display: Suite/Unit
+              type: text
+              listable: false
+              width: 33
+          -
+            handle: address_city
+            field:
+              display: City
+              type: text
+              listable: false
+              width: 50
+          -
+            handle: address_state
+            field:
+              display: State
+              type: text
+              listable: false
+              width: 25
+          -
+            handle: address_zip
+            field:
+              display: Zip
+              type: text
+              listable: false
+              width: 25
+  error_messages:
+    display: 'Error messages'
+    sections:
+      -
+        fields:
+          -
+            handle: section_404
+            field:
+              type: section
+              display: '404 error'
+          -
+            import: error_message
+            prefix: '404_'

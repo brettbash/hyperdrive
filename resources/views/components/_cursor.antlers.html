@@ -1,0 +1,16 @@
+{{#
+	@name Cursor
+	@desc Custom cursor used throughout the site
+#}}
+
+<div
+    x-data="cursor()"
+    x-init="start()"
+    x-ref="cursorContainer"
+    class="absolute z-50 inset-0 w-0 h-0 invisible pointer-events-none"
+>
+    {{ partial:components/cursor/layers/bottom-layer }}
+    {{ partial:components/cursor/layers/middle-layer }}
+    {{ partial:components/cursor/layers/top-layer }}
+    {{ partial:components/cursor/layers/cursor-layer }}
+</div>

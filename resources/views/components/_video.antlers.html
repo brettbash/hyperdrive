@@ -1,0 +1,25 @@
+{{#
+	@name Video
+	@desc The article video component. Uses the Video Player component.
+    @set page.article.video
+#}}
+
+<div class="size-{{ set:size }} my-12">
+
+    <div
+        x-data="fadeIn()"
+        x-init="mounted()"
+        x-ref="element"
+        class="w-full"
+    >
+        {{ partial:components/video_player :source="set:source" :video_id="set:vimeo" }}
+    </div>
+
+    {{ partial:typography/caption
+        attribute="
+            x-data='fadeIn()'
+            x-init='mounted()'
+            x-ref='element'
+        "
+    }}
+</div>

@@ -1,0 +1,25 @@
+export_paths:
+  - .editorconfig
+  - .npmrc
+  - .prettierignore
+  - .prettierrc
+  - config/filesystems.php
+  - config/statamic/assets.php
+  - content
+  - eslint.config.js
+  - package.json
+  - public
+  - resources/blueprints
+  - resources/css
+  - resources/fieldsets
+  - resources/forms
+  - resources/js
+  - resources/svg
+  - resources/views
+  - tailwind.config.core.js
+  - tailwind.config.site.js
+  - tailwind.config.typography.js
+  - tailwind.config.js
+  - webpack.mix.js
+dependencies:
+  jonassiewertsen/statamic-livewire: ^3.6.0

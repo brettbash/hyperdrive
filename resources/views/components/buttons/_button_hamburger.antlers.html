@@ -1,0 +1,105 @@
+{{#
+    @name Button: Hamburger
+    @desc Hamburger button that toggles the hidden navigation.
+    @type component
+#}}
+<div
+    x-data="{
+        hovered: false
+    }"
+    class="{{ wrapper_class }}"
+>
+
+    <button
+        {{ if magnetic }}
+            x-data="magnetic()"
+            x-ref="button"
+            @mousemove="
+                magnetize($event, $el, $refs.button, 25);
+                magnetize($event, $el, $refs.content, -35);
+            "
+        {{ /if }}
+        @mouseleave="
+            {{ if magnetic }}
+                demagnetize($refs.button);
+                demagnetize($refs.content);
+            {{ /if }}
+            if (!$store.isTouch) {
+                hovered = false;
+            };
+        "
+        @mouseenter="
+            if (!$store.isTouch) {
+                hovered = true;
+            };
+        "
+        @click="$store.overlay.nav.toggle()"
+        :aria-label="$store.overlay.nav.open ? 'Close Nav' : 'Open Nav'"
+        class="
+            {{ class }}
+            relative
+            flex justify-center items-center
+            w-16 h-16 px-4
+            focus:outline-none
+            transition-none group
+        "
+    >
+        <div class="absolute inset-0 border border-white rounded-full"></div>
+        <div
+            x-ref="content"
+            class="relative w-full h-full overflow-hidden"
+        >
+
+            {{# π ----
+            // :: HAMBURGER
+            // : ---------------------------------- #}}
+            <div
+                x-show="!$store.overlay.nav.open"
+                x-transition:enter="transition ease-in-out-circ duration-500"
+                x-transition:enter-start="translate-x-over"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition ease-in-out-circ duration-500"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="-translate-x-over"
+                class="relative flex flex-col justify-center items-end w-full h-full gap-2 overflow-hidden"
+            >
+                <div
+                    class="
+                        w-full h-px
+                        bg-white lg:group-hover:bg-primary
+                        group-focus-visible:bg-primary
+                        lg:group-hover:-translate-x-1/2
+                        transition duration-200
+                    "
+                ></div>
+                <div
+                    class="
+                        w-full h-px
+                        bg-white lg:group-hover:bg-primary
+                        group-focus-visible:bg-primary
+                        translate-x-1/3 lg:group-hover:translate-x-0
+                        transition duration-200
+                    "
+                ></div>
+            </div>
+
+            {{# π ----
+            // :: CLOSE
+            // : ---------------------------------- #}}
+            <div
+                x-show="$store.overlay.nav.open"
+                x-transition:enter="transition ease-in-out-circ duration-500"
+                x-transition:enter-start="translate-x-over"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transition ease-in-out-circ duration-500"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="-translate-x-over"
+                class="absolute inset-0 flex justify-center items-center"
+            >
+                {{ partial:components/close
+                    attribute="false"
+                }}
+            </div>
+        </div>
+    </button>
+</div>

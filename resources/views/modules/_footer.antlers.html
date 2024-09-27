@@ -1,0 +1,31 @@
+{{#
+	@name Footer
+	@desc The sites footer rendered on each page.
+    @type module
+#}}
+
+<footer
+    class="fluid-container"
+>
+    <div
+        class="
+            flex flex-col lg:flex-row
+            justify-between items-center gap-8
+            mt-12 w-full lg:px-10 lg:py-8
+            lg:border border-neutral rounded-full
+            text-black
+        "
+    >
+        {{ partial:navigation/nav_footer }}
+        {{ partial:components/social_items
+            color="text-neutral"
+            color_hover="lg:hover:text-neutral-700"
+        }}
+    </div>
+
+    <div class="py-6 text-neutral text-center">
+        {{ partial:typography/meta
+            content="© {now|format:Y} {{ site.name }}"
+        }}
+    </div>
+</footer>

@@ -1,0 +1,72 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      - fields:
+          - handle: title
+            field:
+              type: text
+              required: true
+              input_type: text
+              localizable: true
+              listable: true
+              display: Title
+              validate:
+                - required
+      - display: Hero
+        fields:
+          - handle: hero
+            field:
+              fields:
+                - import: hero
+              mode: stacked
+              max_rows: 1
+              min_rows: 1
+              add_row: 'Add Hero'
+              reorderable: false
+              fullscreen: true
+              type: grid
+              icon: grid
+              listable: hidden
+              instructions_position: above
+              visibility: visible
+              replicator_preview: true
+              hide_display: false
+  blocks:
+    display: Blocks
+    sections:
+      - fields:
+          - import: blocks
+  seo:
+    display: SEO
+    sections:
+      - fields:
+          - import: seo
+  sidebar:
+    display: Sidebar
+    sections:
+      - fields:
+          - handle: meta
+            field:
+              type: section
+              instructions: "This entry's meta data."
+              display: Meta
+          - handle: slug
+            field:
+              type: slug
+              localizable: true
+              generate: true
+              listable: hidden
+              display: Slug
+              validate:
+                - required
+                - 'new \Statamic\Rules\UniqueEntryValue({collection}, {id}, {site})'
+          - handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true

@@ -1,0 +1,50 @@
+title: Blocks
+fields:
+  - handle: blocks
+    field:
+      type: replicator
+      localizable: true
+      collapse: true
+      listable: false
+      display: Blocks
+      instructions: 'Build your page by using various predefined content blocks'
+      sets:
+        article:
+          display: Article
+          instructions: 'Long form content, can be expanded with media like figures, video, quotes, or tables.'
+          fields:
+            - import: article
+        call_to_action:
+          display: 'Call to Action'
+          fields:
+            - import: call_to_action
+        form:
+          display: Form
+          fields:
+            - import: form
+        spacer:
+          display: Spacer
+          fields:
+            - import: spacer
+        split:
+          display: Split
+          fields:
+            - import: split
+      instructions_position: above
+      read_only: false
+  - handle: spacing_top
+    field:
+      display: 'Top Spacing'
+      default: true
+      type: toggle
+      icon: toggle
+      width: 50
+      listable: hidden
+  - handle: spacing_bottom
+    field:
+      display: 'Bottom Spacing'
+      default: true
+      type: toggle
+      icon: toggle
+      width: 50
+      listable: hidden

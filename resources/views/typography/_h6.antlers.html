@@ -1,0 +1,18 @@
+{{#
+	@name h6
+	@desc The typography h6 partial to render an h6 with `class`, `as`, `color` and `content` attributes.
+#}}
+
+<{{ as or "h6" }}
+    {{ attribute }}
+    class="
+        text-xs lg:text-sm font-sans
+        {{ font_weight or "font-normal" }}
+        tracking-wide
+        {{ font_case or "uppercase" }}
+        {{ color or "text-inherit" }}
+        {{ class }}
+    "
+>
+    {{ content | nl2br }}
+</{{ as or "h6" }}>

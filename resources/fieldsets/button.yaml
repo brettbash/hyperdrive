@@ -1,0 +1,14 @@
+title: 'Component: Button'
+fields:
+  -
+    handle: label
+    field:
+      input_type: text
+      type: text
+      localizable: true
+      listable: false
+      display: Label
+      instructions: 'The text inside the button.'
+      replicator_preview: false
+  -
+    import: links

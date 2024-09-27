@@ -1,0 +1,11 @@
+title: 'Block: Spacing'
+fields:
+  -
+    handle: set_top_padding
+    field:
+      display: 'Top Padding'
+      default: true
+      type: toggle
+      icon: toggle
+      instructions: 'Adds a top padding to the block (enabled by default). Only adds padding if the block is __not__ the first in the set.'
+      listable: hidden

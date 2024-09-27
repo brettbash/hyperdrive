@@ -1,0 +1,20 @@
+{{#
+	@name Footer Nav Item
+	@desc Small nav item used in the footer
+    @type component
+#}}
+
+<a
+    href="{{ url }}"
+    class="
+        {{ color ?? 'text-white' }}
+        {{ color_hover ?? 'lg:hover:text-primary' }}
+        transition-colors
+    "
+>
+    {{ partial:typography/h6
+        as="div"
+        :content="title"
+        color="false"
+	}}
+</a>

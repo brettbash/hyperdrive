@@ -1,0 +1,73 @@
+{{#
+	@name Hyperdrive toolbar
+	@desc The Hyperdrive toolbar component displaying debug information.
+#}}
+
+{{ if environment == "local" }}
+    <aside
+        x-data="{
+            visible: true,
+        }"
+
+        x-init="
+            {{#
+            ScrollTrigger.create({
+                trigger: document.getElementById('smooth-content'),
+                start: 'top top',
+                end: 'bottom',
+                pin: $refs.toolbar,
+            });
+            #}}
+        "
+
+        x-ref="toolbar"
+        x-cloak
+        class="fixed z-40 top-[100vh] right-0 flex bg-neutral-900 text-xs hover:opacity-100 transition-opacity -translate-y-full"
+        :class="{ 'opacity-100': visible, 'opacity-0': !visible }"
+    >
+        <span title="Current Tailwind breakpoint" class="flex items-center p-2 space-x-1 text-black bg-primary">
+            {{ svg:breakpoint class="w-4 h-4 fill-current" alt="" aria-hidden="true" }}
+            <span class="breakpoint"></span>
+        </span>
+
+        {{ if logged_in }}
+            <a
+                :href="$store.overlay.toolbar.editUrl"
+                title="Edit entry in CP"
+                aria-label="Edit entry in CP"
+                target="_blank"
+                class="flex items-center pl-4 pr-3 py-2 space-x-1 text-tertiary hover:text-primary bg-neutral-700 hover:bg-neutral-600 transition-colors"
+            >
+                {{ svg:edit class="w-4 h-4 fill-current" alt="" aria-hidden="true" }}
+                <span>Edit</span>
+            </a>
+        {{ /if }}
+
+        <button
+            @click="
+                visible = !visible;
+                visible ? window.setCookie('toolbar_visible', true) : window.setCookie('toolbar_visible', false);
+            "
+            title="Toggle toolbar visibility"
+            aria-label="Toggle toolbar visibility"
+            class="flex items-center justify-center px-2 bg-neutral-900 hover:bg-neutral-800 text-tertiary hover:text-primary-200 transition-colors"
+        >
+            <div :class="{ 'hidden': visible, 'block': !visible }">
+                {{ svg:invisible class="w-5 h-5 fill-current" alt="" aria-hidden="true" }}
+            </div>
+
+            <div :class="{ 'block': visible, 'hidden': !visible }">
+                {{ svg:visible class="w-5 h-5 fill-current" alt="" aria-hidden="true" }}
+            </div>
+        </button>
+
+        <button
+            @click="$refs.toolbar.remove()"
+            title="Remove toolbar"
+            aria-label="Remove toolbar"
+            class="flex items-center justify-center px-2 text-pink-300 hover:text-pink-400 bg-neutral-900 hover:bg-neutral-800 transition-colors"
+        >
+            {{ svg:trash class="w-4 h-4 stroke-current" alt="" aria-hidden="true" }}
+        </button>
+    </aside>
+{{ /if }}

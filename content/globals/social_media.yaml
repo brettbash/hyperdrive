@@ -1,0 +1,27 @@
+title: 'Social media'
+data:
+  social_media:
+    -
+      id: m1jo8uc5
+      url: '#'
+      prefix: 'https://www.facebook.com/'
+      type: facebook
+      enabled: true
+    -
+      id: m1jo8y93
+      url: '#'
+      prefix: 'https://www.instagram.com/'
+      type: instagram
+      enabled: true
+    -
+      id: m1jo92er
+      url: '#'
+      prefix: 'https://www.youtube.com/'
+      type: youtube
+      enabled: true
+    -
+      id: m1juzfwc
+      url: brettbash
+      prefix: 'https://www.x.com/'
+      type: x
+      enabled: true

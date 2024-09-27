@@ -1,0 +1,20 @@
+{{#
+	@name Form
+	@desc The form page builder block.
+    @set page.page_builder.form
+#}}
+
+<section class="fluid-container grid md:grid-cols-12 gap-y-8 md:gap-8">
+    <div class="md:col-start-3 md:col-span-8">
+        {{ partial:typography/h2 class="mb-4" :content="block:title" }}
+        {{ partial:typography/paragraph :content="block:text" }}
+
+        <div class="flex justify-center">
+            {{ if block:form.handle }}
+                {{# {{ livewire:form :form="block:form.handle" view="contact" }} #}}
+            {{ /if }}
+        </div>
+
+    </div>
+</section>
+

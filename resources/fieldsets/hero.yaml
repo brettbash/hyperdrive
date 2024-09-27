@@ -1,0 +1,62 @@
+title: 'Module: Hero'
+fields:
+  - handle: type
+    field:
+      options:
+        primary: Primary
+        secondary: Secondary
+      display: Type
+      default: primary
+      type: button_group
+      icon: button_group
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+  - handle: subtitle
+    field:
+      input_type: text
+      antlers: false
+      display: Subtitle
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      width: 33
+  - handle: title
+    field:
+      input_type: text
+      antlers: false
+      display: Title
+      type: text
+      icon: text
+      listable: hidden
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      hide_display: false
+      width: 66
+  - handle: text
+    field: common.text_plain
+  - import: buttons
+  - handle: media
+    field:
+      container: assets
+      mode: grid
+      restrict: false
+      allow_uploads: false
+      max_files: 1
+      type: assets
+      listable: false
+      display: Media
+      instructions_position: above
+      visibility: visible
+      replicator_preview: true
+      show_set_alt: false
+      hide_display: false
+      width: 50
+      show_filename: true

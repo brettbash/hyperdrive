@@ -1,0 +1,9 @@
+{
+    "name": "brettbash/hyperdrive",
+    "extra": {
+        "statamic": {
+            "name": "Hyperdrive",
+            "description": "Statamic starter theme for animated websites"
+        }
+    }
+}

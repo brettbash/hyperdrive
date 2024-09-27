@@ -1,0 +1,45 @@
+{{#
+    @name Close Icon
+    @type component
+#}}
+
+<div
+    {{ attribute }}
+    class="
+        {{ size or 'w-full h-full' }}
+        flex flex-col gap-2
+        justify-center items-end
+        rotate-45
+    "
+>
+    {{ loop times="2" }}
+        <div
+            class="
+                {{ count === 1 ?= 'rotate-90' }}
+                absolute inset-0 w-full h-full
+                flex justify-center items-center
+            "
+        >
+
+            <div
+                class="
+                    w-full h-px
+                    bg-white
+                    group-focus-visible:bg-primary
+                    overflow-hidden transition
+                "
+            >
+                <div
+                    x-show="hovered"
+                    x-transition:enter="transition duration-300 ease-out-circ {{ count === 1 ?= 'delay-150' }}"
+                    x-transition:enter-start="translate-x-full"
+                    x-transition:enter-end="translate-x-0"
+                    x-transition:leave="transition duration-300 ease-out-circ {{ count === 1 ?= 'delay-150' }}"
+                    x-transition:leave-start="translate-x-0"
+                    x-transition:leave-end="-translate-x-full"
+                    class="w-full h-full bg-primary"
+                ></div>
+            </div>
+        </div>
+    {{ /loop }}
+</div>
